@@ -1,0 +1,61 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="ChrensliUI.lua"/>
+  <Frame name="ChrensliUIFrame" toplevel="true" parent="UIParent" frameStrata="DIALOG" hidden="false" enableMouse="true" movable="true">
+    <Size>
+      <AbsDimension x="220" y="400"/>
+    </Size>
+    <Anchors>
+      <Anchor point="CENTER"/>
+    </Anchors>
+    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+      <BackgroundInsets>
+        <AbsInset left="10" right="10" top="10" bottom="10"/>
+      </BackgroundInsets>
+      <TileSize>
+        <AbsValue val="32"/>
+      </TileSize>
+      <EdgeSize>
+        <AbsValue val="32"/>
+      </EdgeSize>
+    </Backdrop>
+    <Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Header">
+					<Size>
+						<AbsDimension x="340" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="0" y="12.5"/>
+						</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+    </Layers>
+		<Scripts>
+			<OnLoad>
+				ChrensliUIWindow_OnLoad();
+			</OnLoad>
+			<OnDragStart>
+				ChrensliUIWindow_OnDragStart();
+			</OnDragStart>
+			<OnDragStop>
+				ChrensliUIWindow_OnDragStop();
+			</OnDragStop>
+			<OnMouseUp>
+				ChrensliUIWindow_OnDragStop();
+				ChrensliUIWindowLeftClick(button);
+				ChrensliUIWindowRightClick(button);
+			</OnMouseUp>
+			<OnEnter>
+				ChrensliUIWindow_OnEnter();
+			</OnEnter>
+			<OnLeave>
+				ChrensliUIWindow_OnLeave();
+			</OnLeave>
+		</Scripts>
+  </Frame>
+</Ui>
